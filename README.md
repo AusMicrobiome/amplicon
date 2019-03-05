@@ -1,2 +1,2 @@
 # amplicon
-amplicon analysis workflow (OTU)
+amplicon analysis workflow (ZOTU)

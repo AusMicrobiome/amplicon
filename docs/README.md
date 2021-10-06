@@ -6,6 +6,18 @@ Data processing methodology can be determined by date `(dd/mm/yyyy)` or by exami
 
 ### Version history
 
+#### 2.1.0
+
+- Data analysed with workflow 2.1.0 has an updated info.txt file containing:
+  - `Dataset methodology=bpaotu_x.x.x__analysis_2.1.0__AM_db_vx_xxxxxxxxxxxx.db__AM_data_submit_xxxxxxxxxxxx.tar.gz`
+  - `Dataset analysis url=https://github.com/AusMicrobiome/amplicon/raw/2.1.0/docs/amplicon_analysis_workflow.docx`
+ - [Download version 2.1.0](https://github.com/AusMicrobiome/amplicon/raw/2.1.0/docs/amplicon_analysis_workflow.docx)
+ 
+   **Change summary**
+   - Included workflow for trait analysis of bacterial (27f/519r) and archaeal (2f/519r) ZOTUs using FAPROTAX
+   - Included workflow for trait analysis of ITS1 and ITS2 ZOTUs using FUNGuild
+   - Typographical modifications
+  
 #### 2.0.0
 
 - Data accessed after `03/08/2021` or with `Dataset methodology=bpaotu_x.x.x_AM_db_v2_xxxxxxxxxxxx.db`: [Download version 2.0.0](https://github.com/AusMicrobiome/amplicon/raw/2.0.0/docs/amplicon_analysis_workflow.docx)

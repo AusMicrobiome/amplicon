@@ -6,6 +6,14 @@ Data processing methodology can be determined by date `(dd/mm/yyyy)` or by exami
 
 ### Version history
 
+#### 2.2.0
+- Data analysed with workflow 2.2.0 will contain the following information in the info.txt file:
+  - `Dataset methodology=bpaotu_x.x.x__analysis_2.2.0__AM_db_vx.x_xxxxxxxxxxxx.db__AM_data_submit_xxxxxxxxxxxx.tar.gz`
+   
+   **Change summary**
+   - Added workflow information for final taxonomic classifications with multiple databases and classification methodologies.
+   - Text changes for clarity.
+
 #### 2.1.0
 
 - Data analysed with workflow 2.1.0 will contain the following information in the info.txt file:

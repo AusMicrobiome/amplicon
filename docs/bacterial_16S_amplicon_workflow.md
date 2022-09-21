@@ -7,27 +7,27 @@ ZOTU analysis is performed using a combination of per sample and per sequencing 
 The workflow consists of the following stages:
 
 1. **Sequence preparation**
-    - Merge paired end reads (non-merged reads are discarded)
-    - Convert fastq file format to fasta file format and rename files
-    - Add sampleID, runID and "sample=" information to the sequence headers
+     - Merge paired end reads (non-merged reads are discarded)
+     - Convert fastq file format to fasta file format and rename files
+     - Add sampleID, runID and "sample=" information to the sequence headers
 2. **Generate unique sequence dataset**
-    - Generate unique sequences
-    - Convert unique sequences to 3 column abundance table
+     - Generate unique sequences
+     - Convert unique sequences to 3 column abundance table
 3.  **Sample-wise denoising**
-    -  Quality screening and ZOTU calling on individual samples on a plate
-    - Concatenate all sample-wise ZOTU in the sequencing run into a single file
+     -  Quality screening and ZOTU calling on individual samples on a plate
+     - Concatenate all sample-wise ZOTU in the sequencing run into a single file
 4. **Plate-wise denoising**
-    - Concatenate all sequences per sequencing run into a single file
-    - Quality screening and ZOTU calling of concatenated samples on the plate
-    - Concatenate plate-wise ZOTUs, sample-wise ZOTUs and prior sequences into a single file
-    - Dereplicate duplicated ZOTU sequences and sequence mapping
-    - Classify and remove sequences in the wrong orientation
-    - Replace arbitrary ZOTU ID's with the sequence itself in the table index 
+     - Concatenate all sequences per sequencing run into a single file
+     - Quality screening and ZOTU calling of concatenated samples on the plate
+     - Concatenate plate-wise ZOTUs, sample-wise ZOTUs and prior sequences into a single file
+     - Dereplicate duplicated ZOTU sequences and sequence mapping
+     - Classify and remove sequences in the wrong orientation
+     - Replace arbitrary ZOTU ID's with the sequence itself in the table index 
   5. **Prepare the single dataset**
-    - Merge tables into a single table
-    - Remove controls from the abundance tables, to create separate sample and control datasets
-    - Make a fasta file from unique ZOTUs in the abundance table
-    - Classify Sequences
+     - Merge tables into a single table
+     - Remove controls from the abundance tables, to create separate sample and control datasets
+     - Make a fasta file from unique ZOTUs in the abundance table
+     - Classify Sequences
 
 **Software used**
 
@@ -63,7 +63,7 @@ For sequence files with AM sampleIDs, file names are changed to the following fo
 
 `sampleID_plateID.fasta`
 
-For sequence files downloaded from NCBI, file names are changed to a similar format using the NCBI BioSampleID and BioProjectID, as below.
+For sequence files downloaded from NCBI, file names are changed to a similar format using the NCBI BioSampleID and BioProjectID, as below:
 
 `BioSampleID_BioProjectID.fasta`
 

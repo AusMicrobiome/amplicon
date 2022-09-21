@@ -65,7 +65,7 @@ For sequence files with AM sampleIDs, file names are changed to the following fo
 
 `sampleID_plateID.fasta`
 
-For sequence files downloaded from NCBI, file names are changed to a similar format using the NCBI BioSampleID and BioProjectID, as below.
+For sequence files downloaded from NCBI, file names are changed to a similar format using the NCBI BioSampleID and BioProjectID, as below:
 
 `BioSampleID_BioProjectID.fasta`
 

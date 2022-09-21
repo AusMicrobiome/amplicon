@@ -45,11 +45,11 @@ Unique ZOTU sequences are classified to provide taxonomies relative to the Silva
 
 Unique taxonomic classification strings are used to construct a tab separated FAPROTAX readable input file in the following format:
 
-| #OTU ID | All_samples | taxonomy          |
-| ------- | ----------- | --------          |
-| 0       | 1           | <taxonomy string> |
-| 1       | 1           | <taxonomy string> |
-| 2       | 1           | <taxonomy string> |
+| #OTU ID | All_samples | taxonomy             |
+| ------- | ----------- | --------             |
+| 0       | 1           | \<taxonomy string\>  |
+| 1       | 1           | \<taxonomy string\>  |
+| 2       | 1           | \<taxonomy string\>  |
 
 
 **Generate FAPROTAX output file**

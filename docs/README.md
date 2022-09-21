@@ -6,6 +6,34 @@ Data processing methodology can be determined by date `(dd/mm/yyyy)` or by exami
 
 ### Version history
 
+#### 2.2.1
+
+**Transition from workflows documented in a single Microsoft word file `(.docx)` to individual markdown `(.md)` files for each analysis**
+- Converted workflows in `amplicon_analysis_workflow.docx` to the following markdown documents:
+  - archaeal_16S_amplicon_workflow.md
+  - bacterial_16S_amplicon_workflow.md
+  - eukaryotic_18S_amplicon_workflow.md
+  - faprotax_16S_trait_workflow.md
+  - fungal_ITS_amplicon_workflow.md
+  - funguild_ITS_trait_workflow.md
+  - metaxa_ssuRNA_metagenome_workflow.md
+
+- Deleted `amplicon_analysis_workflow.docx` from repository
+
+- No methodological changes to workflows from 2.2.0. However, numerous typographical/organisational changes have been made for clarity. 
+    - Corrected information in some commands including:
+        - Fixed missing `--plus T` argument in metaxa2 command
+        - Deleted unused metaxa2 dependencies
+        - Fixed missing arguments `-maxhits 1`, `-strand plus` in usearch global command
+        - Fixed missing call to `mothur` in `remove flipped` classification
+
+- **Version control in download packets**
+  -   Data analysed with workflow 2.2.1 will contain the following information in the `info.txt` file:
+      -   `Dataset methodology=bpaotu_x.x.x__analysis_2.2.1__AM_db_vx.x_xxxxxxxxxxxx.db__AM_data_submit_xxxxxxxxxxxx.tar.gz`
+
+  - Due to the addition of multiple markdown documents and deletion of `amplicon_analysis_workflow.docx`, `Dataset analysis url` in the `info.txt` file will now provide a link to the github tree for the tagged version, as below:
+      - `Dataset analysis url=https://github.com/AusMicrobiome/amplicon/tree/2.2.1/docs`
+
 #### 2.2.0
 - Data analysed with workflow 2.2.0 will contain the following information in the info.txt file:
   - `Dataset methodology=bpaotu_x.x.x__analysis_2.2.0__AM_db_vx.x_xxxxxxxxxxxx.db__AM_data_submit_xxxxxxxxxxxx.tar.gz`

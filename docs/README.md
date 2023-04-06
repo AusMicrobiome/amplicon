@@ -6,6 +6,12 @@ Data processing methodology can be determined by date `(dd/mm/yyyy)` or by exami
 
 ### Version history
 
+#### 2.2.2
+  -   Data analysed with workflow 2.2.2 will contain the following information in the `info.txt` file:
+      -   `Dataset methodology=bpaotu_x.x.x__analysis_2.2.2__AM_db_vx.x_xxxxxxxxxxxx.db__AM_data_submit_xxxxxxxxxxxx.tar.gz`
+   **Change summary**
+   - Fixed typographical error in platewise zotu calling where minimum size was defined as 8, corrections reflect the minimum size of 4.
+
 #### 2.2.1
 
 **Transition from workflows documented in a single Microsoft word file `(.docx)` to individual markdown `(.md)` files for each analysis**

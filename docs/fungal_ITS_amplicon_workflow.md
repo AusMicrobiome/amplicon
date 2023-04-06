@@ -153,9 +153,9 @@ The first step removes sequences that have ambiguous bases, or have more than 12
 
     usearch -sortbysize plateID_all_ITSn.good_uniques.fasta -fastaout plateID_all_ITSn.good_sorted_uniques.fasta -sizeout
 
-**ZOTUs are called by *UNOISE3*, from sequences that have => 8 representatives:**
+**ZOTUs are called by *UNOISE3*, from sequences that have => 4 representatives:**
 
-    usearch -unoise3 plateID_all_ITSn.good_sorted_uniques.fasta -zotus plateID_all_ITSn.good_sorted_uniques_zotus.fasta -ampout plateID_all_ITSn.good_sorted_uniques_ampout.fasta -tabbedout plateID_all_ITSn.good_sorted_uniques_unoise3.txt -minsize 8
+    usearch -unoise3 plateID_all_ITSn.good_sorted_uniques.fasta -zotus plateID_all_ITSn.good_sorted_uniques_zotus.fasta -ampout plateID_all_ITSn.good_sorted_uniques_ampout.fasta -tabbedout plateID_all_ITSn.good_sorted_uniques_unoise3.txt -minsize 4
 
 Combine the ZOTUs obtained from sample-wise and plate-wise analysis with a defined set of "prior" sequences into a single fasta file. The resulting file name is standardised to the format:
 

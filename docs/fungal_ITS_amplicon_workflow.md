@@ -204,7 +204,7 @@ Final taxonomic tables are produced by classifying sequences using the below tax
 
 Databases used for eukaryotic fungal ITS:
 
--   UNITEv* SH (Picard et al., 2018)
+-   UNITEv`<number>`* SH (Picard et al., 2018)
 
 **Database version options used for taxonomic assignments are provided in the AM data portal (https://data.bioplatforms.com/bpa/otu/) taxonomy selection pulldown. Information on the version used can also be found in the `info.txt` file contained in AM data portal download packets.* 
 

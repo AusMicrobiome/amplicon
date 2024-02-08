@@ -230,7 +230,9 @@ Databases used for eukaryotic 18S:
 
 -   Silva 132 (Quast et al., 2013; Yilmaz et al., 2014; Glöckner 2017)
 
--   PR^2^ version 4.14.0 (Guillou, et al., 2013; del Campo et al., 2018; Vaulot, et. al., 2021)
+-   PR2v`<number>`* (Guillou, et al., 2013; del Campo et al., 2018; Vaulot, et. al., 2021)
+
+**Database version options used for taxonomic assignments are provided in the AM data portal (https://data.bioplatforms.com/bpa/otu/) taxonomy selection pulldown. Information on the version used can also be found in the `info.txt` file contained in AM data portal download packets.*
 
 Classifiers are used with the following arguments:
 

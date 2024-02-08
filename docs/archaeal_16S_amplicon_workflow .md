@@ -41,7 +41,8 @@ The following software is used in the workflow:
 5. USEARCH (Edgar, 2010)
 6. Mothur (Schloss, et al., 2009)
 7. QIIME2 (Bolyen et al., 2019)
-8. Python3
+8. RDP (Wang et al., 2007)
+9. Python3
 
 ### 1, Sequence preparation
 
@@ -187,11 +188,11 @@ After denoising and mapping the ZOTU tables have an arbitrary ZOTU number as the
 
 **Classify and remove flipped sequences**
 
-A final QC step is performed to remove likely erroneous sequences. The ZOTUs are classified, with those that do not align to the Greengenes (DeSantis et al.,2006) 16S database in the correct orientation being removed. Those that need to be "flipped" to a new orientation are likely errors, since we know the reads should be in A2f -- 519r orientation. This step typically removes < 10 ZOTUs from the database.
+A final QC step is performed to remove likely erroneous sequences. The ZOTUs are classified, with those that do not align to the Silva 132 (Quast et al., 2013; Yilmaz et al., 2014; Glöckner 2017) 16S database in the correct orientation being removed. Those that need to be "flipped" to a new orientation are likely errors, since we know the reads should be in A2f -- 519r orientation. This step typically removes < 10 ZOTUs from the database.
 
 **A. Classify the seqs against 16S database:**
 
-    mothur "#set.dir(modifynames=F); classify.seqs(fasta=plateID_all_A16S.trimmed.good_sorted_uniques_ZOTUtab_relabelled_MA0.fasta, reference=gg_13_8_99.fasta, taxonomy=gg_13_8_99.gg.tax, cutoff=60, probs=FALSE)"
+    mothur "#set.dir(modifynames=F); classify.seqs(fasta=plateID_all_A16S.trimmed.good_sorted_uniques_ZOTUtab_relabelled_MA0.fasta, reference=silva.nr_v132.align, taxonomy=silva.nr_v132.tax, cutoff=60, probs=FALSE)"
 
 **B. Use the \*acnos.flip list to remove flipped sequences from the table**
 
@@ -218,6 +219,8 @@ Databases used for archaeal 16S:
 
 -   Silva 132 (Quast et al., 2013; Yilmaz et al., 2014; Glöckner 2017)
 
+-   RDP (https://sourceforge.net/projects/rdp-classifier/)
+
 Classifiers are used with the following arguments:
 
 **QIIME2** SKlearn Bayesian classifier:
@@ -232,6 +235,10 @@ Classifiers are used with the following arguments:
 
     -query_cov 1.0 -id 0.8 -maxaccepts 100 -maxrejects 100 -maxhits 1 -strand plus -threads 8
 
+**RDP** wang Bayesian classifier:
+
+    -conf 0.6 -f filterbyconf
+
 **References**
 1. Magoc, T. and Salzberg, S. (2011). FLASH: Fast length adjustment of short reads to improve genome assemblies. Bioinformatics 27(21): 2957-2963.
 2. Seqtk available at: <https://github.com/lh3/seqtk> (last accessed 23 Jan 2019).
@@ -239,7 +246,7 @@ Classifiers are used with the following arguments:
 4. FASTX available at: (<http://hannonlab.cshl.edu/fastx_toolkit/>) (last accessed 23 Jan 2019).
 5. Edgar, R.C., (2010), Search and clustering orders of magnitude faster than BLAST, Bioinformatics 26(19): 2460-2461.
 6. Schloss, P.D., et al., (2009). Introducing mothur: Open-source, platform-independent, community-supported software for describing and comparing microbial communities. Appl Environ Microbiol 75(23):7537-7541.
-7. DeSantis T.Z., Hugenholtz P., Larsen N., Rojas M., Brodie E.L., Keller K., Huber T., Dalevi D., Hu P., Andersen G.L.(2006) Greengenes, a Chimera-Checked 16S rRNA Gene Database and Workbench Compatible with ARB. Appl. Environ. Microbiol. 72(7): 5069-5072; DOI: 10.1128/AEM.03006-05.
+7. Wang, Q, G. M. Garrity, J. M. Tiedje, and J. R. Cole. (2007). Naive Bayesian Classifier for Rapid Assignment of rRNA Sequences into the New Bacterial Taxonomy. Appl Environ Microbiol. 73(16):5261-7.
 8. Quast C, Pruesse E, Yilmaz P, Gerken J, Schweer T, Yarza P, Peplies J, Glöckner FO (2013) The SILVA ribosomal RNA gene database project: improved data processing and web-based tools. Nucl. Acids Res. 41 (D1): D590-D596.
 9. Yilmaz P, Parfrey LW, Yarza P, Gerken J, Pruesse E, Quast C, Schweer T, Peplies J, Ludwig W, Glöckner FO (2014) The SILVA and "All-species Living Tree Project (LTP)" taxonomic frameworks. Nucl. Acids Res. 42:D643-D648.
 10. Glöckner FO, Yilmaz P, Quast C, Gerken J, Beccati A, Ciuprina A, Bruns G, Yarza P, Peplies J, Westram R, Ludwig W (2017) 25 years of serving the community with ribosomal RNA gene reference databases and tools. J. Biotechnol. 10:169-176.doi: 10.1016/j.jbiotec.2017.06.1198

@@ -10,8 +10,7 @@ The workflow consists of the following stages:
 
 1. Sequence analysis and reporting
     - Generate a FUNGuild input file from the taxonomy files generated from the ITSn workflow
-    - Use the FUNGuild parser to format the input file
-    - Run FUNGuild on the parsed input file
+    - Use FUNGuild to identify traits
 2. Preparation of the single datasets
     - Format the FUNGuild traits file for use in the AM
 
@@ -19,32 +18,32 @@ The workflow consists of the following stages:
 
 The following software is used in the workflow:
 
-1. FUNGuild v1.2 (Nguyen et al., 2016)
+1. FUNGuild (Nguyen et al., 2016, https://github.com/UMNFuN/FUNGuild) 
 2. Python3
 
 ### 1. Sequence analysis and reporting
 
 **Prepare a FUNGuild readable input file**
 
-For each classification method used, a tab separated FUNGuild formatted input file is prepared using the final taxonomy files produced in **5. Prepare the single dataset** in **fungal_ITS_amplicon_workflow.md**.
+For each classification database (e.g., Unite), a tab separated FUNGuild input file is prepared by combining all unique taxonomy strings identified in **5. Prepare the single dataset** in **fungal_ITS_amplicon_workflow.md**. The FUNGuild input file has the following format:
+| OTU_ID | taxonomy |
+|-----------|--------------|
+| TAX_1 | k__kingdom1;p__phylum1;c__class1;o__order1;f__family1;g__genus1;s__species1 |
+| TAX_2 | k__kingdom2;p__phylum2;c__class2;o__order2;f__family2;g__genus2;s__species2 |
+| TAX_3 | k__kingdom3;p__phylum3;c__class3;o__order3;f__family3;g__genus3;s__species3 |
 
-**Use the FUNGuild parser to format the input file**
 
-The FUNGuild parser is used to format the input file using the following arguments:
+**Run FUNGuild **
 
-    FUNGuild.py taxa -otu <input_file> -format tsv -column taxonomy -classifier unite
+An output file containing matched traits is generated using the Guilds script with the following arguments:
 
-**Run FUNGuild on the parsed input file**
-
-FUNGuild is run on the parsed input file using the following arguments
-
-    FUNGuild.py guild -taxa
+    Guilds_v1.1.py -otu <input_file> -m -db fungi
 
 ### 2. Preparation of the single datasets
 
 **Format the FUNGuild traits file for use in the AM**
 
-For ingest into the AM, only traits represented in the `guild` field are used. For each classification method used, a final tab separated table containing ZOTU sequence, taxonomy, trait and amplicon code is produced for ingesting into the AM database.
+For ingest into the AM, traits represented in the `Trophic Mode`, `Guild`, `Growth Morphology`, and `Trait` fields are combined into a single comma separated `traits` column. Pipe `|` separated primary guilds (see [GitHub issue #82]( https://github.com/UMNFuN/FUNGuild/issues/82)) are retained. For each classification method used, a final tab separated table containing sequence identifier (md5sum hash of ZOTU sequence), taxonomy, traits and amplicon code is produced for ingesting into the AM data portal.
 
 **References**
 1. Nguyen NH, Song Z, Bates ST, Branco, S, Tedersoo L, Menke J, Schilling JS, Kennedy PG. (2016) FUNGuild: an open annotation tool for parsing fungal community datasets by ecological guild. Fungal Ecology 20:241-248.

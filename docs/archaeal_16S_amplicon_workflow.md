@@ -11,20 +11,17 @@ The workflow consists of the following stages:
    - Convert fastq file format to fasta file format and rename files
    - Add sampleID, runID and "sample=" information to the sequence headers
    - Trim forward and reverse primers from merged reads
-2. **Generate unique sequence dataset**
-   - Generate unique sequences
-   - Convert unique sequences to 3 column abundance table**
-3. **Sample-wise denoising**
+2. **Sample-wise denoising**
    - Quality screening and ZOTU calling on individual samples on a plate
    -  Concatenate all sample-wise ZOTU in the sequencing run into a single file
-4. **Plate-wise denoising**
+3. **Plate-wise denoising**
    - Concatenate all sequences per sequencing run into a single file
    - Quality screening and ZOTU calling of concatenated samples on the plate
    - Concatenate plate-wise ZOTUs, sample-wise ZOTUs and prior sequences into a single file
    - Dereplicate duplicated ZOTU sequences and sequence mapping
    - Classify and remove sequences in the wrong orientation
    - Replace arbitrary ZOTU ID's with the sequence itself in the table index
-5. **Prepare the single dataset**
+4. **Prepare the single dataset**
    - Merge tables into a single table
    - Remove controls from the abundance tables, to create separate sample and control datasets
    - Make a fasta file from unique ZOTUs in the abundance table
@@ -98,19 +95,7 @@ Primers are removed from the merged reads using **Cutadapt** v2.9 with the follo
 
     --minimum-length 1 --cores=0 -g XTTCCGGTTGATCCYGCCGGA -O 20 -e 0.01
 
-### 2. Generate unique sequence dataset
-
-An abundance table of all unique sequences in each sample on the plate is prepared. Unique sequences are identified from the merged R1/R2 sequences using **FASTX** with the following **USEARCH** command:
-
-    usearch -fastx_uniques sampleID_plateID.fasta -fastaout sampleID_plateID_uniques.fasta -sizeout
-
-Unique sequences are then converted into a 3 column tab separated abundance table containing the columns:
-
-`seq\tSample\tAbundance`
-
-*Unique sequences per sample (non-Denoised or quality filtered) are provided as a data output and are available by request through the Australian Microbiome Website.*
-
-### 3. Sample-wise denoising
+### 2. Sample-wise denoising
 
 Each sample file from the sequencing run (e.g., sampleID_plateID.fasta) is denoised individually using the following steps.
 
@@ -138,7 +123,7 @@ All ZOTU files for each sample are concatenated into a single file, this file is
 
 `plateID_all_SW_ZOTUs.fasta`
 
-### 4. Plate-wise denoising
+### 3. Plate-wise denoising
 
 **Concatenate all sequences per sequencing run into a single file**
 
@@ -198,7 +183,7 @@ A final QC step is performed to remove likely erroneous sequences. The ZOTUs are
 
 The above produces the final abundance table, with ZOTU sequences as index for each sequencing run. These tables are then combined as below to produce a single dataset for the Australian Microbiome.
 
-### 5. Prepare the single dataset
+### 4. Prepare the single dataset
 
 Now we have a ZOTU abundance table for each plate, with ZOTU's as row and sampleID_plateID as column headers. To prepare this data for ingest into the AM database the following steps are carried out:
 

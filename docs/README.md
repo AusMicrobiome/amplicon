@@ -5,7 +5,13 @@ Information relating to the workflows used for processed data products available
 Data processing methodology can be determined by date `(dd/mm/yyyy)` or by examining the `Dataset methodology` and/or `Dataset analysis url` value described in the `info.txt` file exported with downloaded data. 
 
 ### Version history
-
+#### 2.4.0
+  -   Data analysed with workflow 2.4.0 will contain the following information in the `info.txt` file:
+      -   `Dataset methodology=bpaotu_x.x.x__analysis_2.4.0__AM_db_vx.x_xxxxxxxxxxxx.db__AM_data_submit_xxxxxxxxxxxx.tar.gz`
+   **Change summary**
+   - Removed information relating to generation of amplicon unique sequences, dataset generation is now deprecated.
+   - Added primer trim information for bacterial 16S samples sequenced using a 2-step protocol.
+   
 #### 2.2.2
   -   Data analysed with workflow 2.2.2 will contain the following information in the `info.txt` file:
       -   `Dataset methodology=bpaotu_x.x.x__analysis_2.2.2__AM_db_vx.x_xxxxxxxxxxxx.db__AM_data_submit_xxxxxxxxxxxx.tar.gz`

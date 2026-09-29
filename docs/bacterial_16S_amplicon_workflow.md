@@ -88,7 +88,7 @@ Bacterial 16S amplicons have been sequenced using either a 1- or 2- step protoco
 
 **Reverse primer removal:**
 
-    --cores=0 -a CAGCMGCCGCGGTAATWCX -O 17 -e 0.01
+    --cores=0 -a CAGCMGCCGCGGTAATWCX -O 18 -e 0.01
 
 **Forward primer removal:**
 
